@@ -3,7 +3,7 @@ package guru.sfg.beer.inventory.service.listeners;
 import guru.sfg.beer.inventory.service.config.JmsConfig;
 import guru.sfg.beer.inventory.service.domain.BeerInventory;
 import guru.sfg.beer.inventory.service.repositories.BeerInventoryRepository;
-import guru.sfg.brewery.model.events.BeerDto;
+import guru.sfg.brewery.model.BeerDto;
 import guru.sfg.brewery.model.events.NewInventoryEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
