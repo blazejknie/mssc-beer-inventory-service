@@ -13,6 +13,9 @@ import org.springframework.jms.support.converter.MessageType;
 public class JmsConfig {
     public static final String BREWING_REQUEST_QUEUE_NAME = "brewing-request";
     public static final String NEW_INVENTORY_QUEUE_NAME = "new-inventory";
+    public static final String ALLOCATE_ORDER_QUEUE_NAME = "allocate-order";
+    public static final String ALLOCATE_ORDER_RESULT_QUEUE_NAME = "allocate-order-result";
+
     private final ObjectMapper objectMapper;
 
     @Bean
