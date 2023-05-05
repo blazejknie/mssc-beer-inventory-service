@@ -2,7 +2,7 @@ package guru.sfg.beer.inventory.service.services.listeners;
 
 import guru.sfg.beer.inventory.service.config.JmsConfig;
 import guru.sfg.beer.inventory.service.services.AllocationService;
-import guru.sfg.brewery.model.AllocateOrderRequest;
+import guru.sfg.brewery.model.events.AllocateOrderRequest;
 import guru.sfg.brewery.model.AllocationOrderResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +25,7 @@ public class OrderAllocationListener {
         try {
             Boolean allocationResult = allocationService.allocateOrder(request.getBeerOrderDto());
             builder.isPendingInventory(!allocationResult);
+            builder.isAllocationError(false);
         } catch (Exception e) {
             log.error("Allocation failed for Order Id :" + request.getBeerOrderDto().getId());
             builder.isAllocationError(true);
