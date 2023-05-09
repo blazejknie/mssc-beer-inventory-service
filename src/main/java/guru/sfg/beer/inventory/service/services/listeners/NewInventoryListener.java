@@ -23,10 +23,10 @@ public class NewInventoryListener {
     public void listenForNewInventory(NewInventoryEvent event) {
         BeerDto beerDto = event.getBeerDto();
         BeerInventory beerInventory = BeerInventory.builder()
-                                                              .beerId(beerDto.getId())
-                                                              .quantityOnHand(beerDto.getQuantityOnHand())
-                                                              .upc(beerDto.getUpc())
-                                                              .build();
+                .beerId(beerDto.getId())
+                .quantityOnHand(beerDto.getQuantityOnHand())
+                .upc(beerDto.getUpc())
+                .build();
         log.debug(String.format("Creating new inventory for Beer: %s", beerDto));
         inventoryRepository.save(beerInventory);
     }

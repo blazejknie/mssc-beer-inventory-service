@@ -2,8 +2,8 @@ package guru.sfg.beer.inventory.service.services.listeners;
 
 import guru.sfg.beer.inventory.service.config.JmsConfig;
 import guru.sfg.beer.inventory.service.services.AllocationService;
-import guru.sfg.brewery.model.events.AllocateOrderRequest;
 import guru.sfg.brewery.model.AllocationOrderResponse;
+import guru.sfg.brewery.model.events.AllocateOrderRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
@@ -20,8 +20,8 @@ public class OrderAllocationListener {
     @JmsListener(destination = JmsConfig.ALLOCATE_ORDER_QUEUE_NAME)
     public void processOrderAllocation(AllocateOrderRequest request) {
         AllocationOrderResponse.AllocationOrderResponseBuilder builder = AllocationOrderResponse.builder()
-                                                                                                .beerOrderDto(
-                                                                                                        request.getBeerOrderDto());
+                .beerOrderDto(
+                        request.getBeerOrderDto());
         try {
             Boolean allocationResult = allocationService.allocateOrder(request.getBeerOrderDto());
             builder.isPendingInventory(!allocationResult);

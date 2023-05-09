@@ -5,7 +5,6 @@ import guru.sfg.beer.inventory.service.repositories.BeerInventoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
@@ -27,7 +26,7 @@ public class BeerInvntoryBootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if(beerInventoryRepository.count() == 0){
+        if (beerInventoryRepository.count() == 0) {
             loadInitialInv();
         }
     }

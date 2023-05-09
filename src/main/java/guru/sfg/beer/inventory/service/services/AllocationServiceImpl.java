@@ -41,10 +41,10 @@ public class AllocationServiceImpl implements AllocationService {
     public void deallocateOrder(BeerOrderDto beerOrderDto) {
         beerOrderDto.getBeerOrderLines().forEach(beerOrderLineDto -> {
             BeerInventory inventory = BeerInventory.builder()
-                                               .beerId(beerOrderLineDto.getId())
-                                               .upc(beerOrderLineDto.getUpc())
-                                               .quantityOnHand(beerOrderLineDto.getQuantityAllocated())
-                                               .build();
+                    .beerId(beerOrderLineDto.getId())
+                    .upc(beerOrderLineDto.getUpc())
+                    .quantityOnHand(beerOrderLineDto.getQuantityAllocated())
+                    .build();
             BeerInventory savedInventory = beerInventoryRepository.save(inventory);
 
             log.debug("Saved inventory for beer upc: " + savedInventory.getUpc() + " inventory id: " + savedInventory.getId());

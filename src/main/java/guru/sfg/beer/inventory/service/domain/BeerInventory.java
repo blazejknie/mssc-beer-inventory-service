@@ -34,8 +34,13 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Entity
-public class BeerInventory extends BaseEntity{
+public class BeerInventory extends BaseEntity {
 
+    @Type(type = "org.hibernate.type.UUIDCharType")
+    @Column(length = 36, columnDefinition = "varchar(36)")
+    private UUID beerId;
+    private String upc;
+    private Integer quantityOnHand = 0;
     @Builder
     public BeerInventory(UUID id, Long version, Timestamp createdDate, Timestamp lastModifiedDate, UUID beerId,
                          String upc, Integer quantityOnHand) {
@@ -44,10 +49,4 @@ public class BeerInventory extends BaseEntity{
         this.upc = upc;
         this.quantityOnHand = quantityOnHand;
     }
-
-    @Type(type="org.hibernate.type.UUIDCharType")
-    @Column(length = 36, columnDefinition = "varchar(36)")
-    private UUID beerId;
-    private String upc;
-    private Integer quantityOnHand = 0;
 }
